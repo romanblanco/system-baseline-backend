@@ -18,6 +18,11 @@ def get_version():
     """
     return {"version": app_version}
 
+@metrics.baseline_update_all_requests.time()
+@metrics.api_exceptions.count_exceptions()
+def update_baselines_by_system_id(system_id=None):
+    print(system_id)
+
 
 @metrics.baseline_fetch_all_requests.time()
 @metrics.api_exceptions.count_exceptions()

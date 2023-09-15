@@ -44,6 +44,25 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/InternalServerError'
+    update:
+      summary: update baseline
+      description: "Update Baseline"
+      operationId: system_baseline.internal_views.v1.update_baselines_by_system_id
+      parameters:
+        - $ref: '#/components/parameters/SystemIdParam'
+      responses:
+        '200':
+          description: a paginated list of baselines
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaselineIdsList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
   /systems/{system_ids}:
     parameters:
       - $ref: '#/components/parameters/SystemIds'
